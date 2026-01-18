@@ -96,6 +96,70 @@ grow_vertical = 2
 text = "Item"
 metadata/_edit_use_anchors_ = true
 
+[node name="AttackSubmenu" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LightAttackButton" type="Button" parent="UI/AttackSubmenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043333333
+anchor_top = 0.2
+anchor_right = 0.37666667
+anchor_bottom = 0.5
+text = "Light Attack"
+metadata/_edit_use_anchors_ = true
+
+[node name="HeavyAttackButton" type="Button" parent="UI/AttackSubmenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63
+anchor_top = 0.2
+anchor_right = 0.9633333
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Heavy Attack"
+metadata/_edit_use_anchors_ = true
+
+[node name="SpecialAttackButton" type="Button" parent="UI/AttackSubmenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.55
+anchor_right = 0.7
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+text = "Special Attack"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="UI/AttackSubmenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.9
+anchor_right = 0.7
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="UI/BackToGameButton" to="." method="_on_back_to_game_button_pressed"]
 [connection signal="pressed" from="UI/BattleMenu/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/BattleMenu/ItemButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="UI/AttackSubmenu/LightAttackButton" to="." method="_on_light_attack_button_pressed"]
+[connection signal="pressed" from="UI/AttackSubmenu/HeavyAttackButton" to="." method="_on_heavy_attack_button_pressed"]
+[connection signal="pressed" from="UI/AttackSubmenu/SpecialAttackButton" to="." method="_on_special_attack_button_pressed"]
+[connection signal="pressed" from="UI/AttackSubmenu/BackButton" to="." method="_on_attack_submenu_back_pressed"]
