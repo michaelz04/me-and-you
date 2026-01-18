@@ -11,6 +11,10 @@ const LIGHT_ATTACK_DAMAGE = 10
 const HEAVY_ATTACK_DAMAGE = 30
 const SPECIAL_ATTACK_DAMAGE = 50
 
+const ENEMY_LIGHT_ATTACK_DAMAGE = 8
+const ENEMY_HEAVY_ATTACK_DAMAGE = 20
+const ENEMY_SPECIAL_ATTACK_DAMAGE = 35
+
 @onready var player_hp_label = $PlayerHPLabel
 @onready var enemy_hp_label = $EnemyHPLabel
 @onready var battle_menu = $UI/BattleMenu
@@ -46,9 +50,46 @@ func player_attack(damage: int, attack_name: String):
 	# Check if enemy is defeated
 	if enemy_hp <= 0:
 		print("Enemy defeated!")
+		show_main_menu()
+		return
 	
 	# Return to main menu after attack
 	show_main_menu()
+	
+	# Enemy turn - attack after player
+	await get_tree().create_timer(0.5).timeout  # Small delay before enemy attack
+	enemy_attack()
+
+func enemy_attack():
+	# Randomly choose an enemy attack
+	var attack_choice = randi() % 3
+	var damage = 0
+	var attack_name = ""
+	
+	match attack_choice:
+		0:
+			damage = ENEMY_LIGHT_ATTACK_DAMAGE
+			attack_name = "Light Attack"
+		1:
+			damage = ENEMY_HEAVY_ATTACK_DAMAGE
+			attack_name = "Heavy Attack"
+		2:
+			damage = ENEMY_SPECIAL_ATTACK_DAMAGE
+			attack_name = "Special Attack"
+	
+	player_hp -= damage
+	
+	# Make sure HP doesn't go below 0
+	if player_hp < 0:
+		player_hp = 0
+	
+	update_hp_display()
+	
+	print("Enemy uses %s for %d damage! Player HP: %d / %d" % [attack_name, damage, player_hp, player_max_hp])
+	
+	# Check if player is defeated
+	if player_hp <= 0:
+		print("Player defeated!")
 
 func _on_back_to_game_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
