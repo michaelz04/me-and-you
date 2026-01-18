@@ -1,9 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd3dfsd76xmfa"]
+[gd_scene load_steps=4 format=3 uid="uid://dd3dfsd76xmfa"]
 
 [ext_resource type="Script" uid="uid://bba4kgdxv2hh1" path="res://scripts/battle.gd" id="1_battle"]
+[ext_resource type="Texture2D" uid="uid://c2ypdjkdm7nan" path="res://assets/cloth_armor.png" id="2_player_sprite"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_player"]
+atlas = ExtResource("2_player_sprite")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enemy"]
+atlas = ExtResource("2_player_sprite")
+region = Rect2(0, 0, 64, 64)
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_battle")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(200, 300)
+texture = SubResource("AtlasTexture_player")
+scale = Vector2(3, 3)
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(800, 300)
+texture = SubResource("AtlasTexture_enemy")
+scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 478.0
