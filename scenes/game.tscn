@@ -142,4 +142,19 @@ offset_bottom = 60.0
 text = "Enter Battle"
 grow_horizontal = 2
 
+[node name="MainMenuButton" type="Button" parent="UI"]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
+text = "Main Menu"
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="UI/EnterBattleButton" to="." method="_on_enter_battle_button_pressed"]
+[connection signal="pressed" from="UI/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
