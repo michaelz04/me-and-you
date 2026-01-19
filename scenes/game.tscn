@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://cr8q3d01b5o2i"]
+[gd_scene load_steps=9 format=4 uid="uid://cr8q3d01b5o2i"]
 
 [ext_resource type="PackedScene" uid="uid://ht1n8nky5ujn" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dxybtmsop7nn4" path="res://assets/background_32.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://d4kfv3ok3cpwr" path="res://assets/tileset_32.png" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bm7704lpg2jt" path="res://scripts/game.gd" id="4_game"]
+[ext_resource type="PackedScene" uid="uid://b8k3n2m5p7rar" path="res://scenes/npc.tscn" id="5_npc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 distance = -57.0
@@ -111,6 +112,9 @@ texture = ExtResource("2_yqjtg")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(-1660, -601)
+
+[node name="NPC" parent="." instance=ExtResource("5_npc")]
+position = Vector2(-1400, -601)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1026, 1174)

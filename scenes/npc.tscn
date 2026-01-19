@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8k3n2m5p7rar"]
+
+[ext_resource type="Texture2D" uid="uid://c2ypdjkdm7nan" path="res://assets/cloth_armor.png" id="1_npc"]
+[ext_resource type="Script" uid="uid://dak4o3n6q8s0t" path="res://scripts/npc.gd" id="2_npc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc1"]
+atlas = ExtResource("1_npc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc2"]
+atlas = ExtResource("1_npc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc3"]
+atlas = ExtResource("1_npc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc4"]
+atlas = ExtResource("1_npc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npc4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
+bg_color = Color(0.1, 0.1, 0.1, 0.9)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("2_npc")
+
+[node name="NPCSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.9999847, -7.6293945e-06)
+scale = Vector2(2.1875005, 1.986328)
+sprite_frames = SubResource("SpriteFrames_npc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="DialogueUI" type="CanvasLayer" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="DialogueUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = 84.0
+offset_right = 296.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+
+[node name="DialogueLabel" type="Label" parent="DialogueUI/DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -60.0
+offset_right = 280.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Hello there!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
