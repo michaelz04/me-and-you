@@ -101,22 +101,23 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
 [node name="Game" type="Node2D"]
+position = Vector2(-7, 27)
 script = ExtResource("4_game")
 
 [node name="Background32" type="Sprite2D" parent="."]
-position = Vector2(1, -366.00003)
-scale = Vector2(3.113542, 7.3398438)
+position = Vector2(28.562544, -223.93748)
+scale = Vector2(4.0481772, 9.889648)
 texture = ExtResource("2_yqjtg")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(-3, -98)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-3, -313)
+position = Vector2(-4, -314)
 zoom = Vector2(0.8, 0.8)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-22, 35)
+position = Vector2(-20, 225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1, 0)
@@ -140,4 +141,19 @@ offset_bottom = 60.0
 grow_horizontal = 2
 text = "Enter Battle"
 
+[node name="MainMenuButton" type="Button" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
 [connection signal="pressed" from="UI/EnterBattleButton" to="." method="_on_enter_battle_button_pressed"]
+[connection signal="pressed" from="UI/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
