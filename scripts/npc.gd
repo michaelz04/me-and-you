@@ -3,7 +3,6 @@ extends Node2D
 @onready var sprite = $NPCSprite
 @onready var dialogue_panel = $DialogueUI/DialoguePanel
 @onready var dialogue_label = $DialogueUI/DialoguePanel/DialogueLabel
-@onready var close_button = $DialogueUI/DialoguePanel/CloseButton
 
 var player: Node2D = null
 const INTERACTION_DISTANCE = 150.0

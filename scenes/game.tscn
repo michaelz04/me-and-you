@@ -102,7 +102,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
 [node name="Game" type="Node2D"]
-position = Vector2(-7, 27)
 script = ExtResource("4_game")
 
 [node name="Background32" type="Sprite2D" parent="."]
